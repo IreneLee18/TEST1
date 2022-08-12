@@ -1,0 +1,18 @@
+.QandA-bg{
+  background-image: url(https://images.unsplash.com/photo-1578678809532-6f0cbc85c59a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+  background-size: cover;
+  background-attachment: fixed;
+  height: calc(100vh - 121px);
+}
+.accordion{
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  @media (min-width:992px){
+    width: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+  }
+}

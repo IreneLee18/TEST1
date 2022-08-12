@@ -1,0 +1,57 @@
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin circle ($circle) {
+  width: $circle;
+  height: $circle;
+  border-radius: 50%;
+}
+
+@mixin step-after-bgc ($color) {
+  &::after{
+    background: $color;
+  }
+}
+
+.cart-step{
+  position: relative;
+  @include circle(50px);
+  background: $white;
+  span{
+    @include position-center;
+  }
+  &::after{
+    content: '';
+    @include position-center;
+    @include circle(55px);
+    background: linear-gradient(to right, $primary, $secondary);
+    z-index: -1;
+    animation: rotate 6s linear infinite;
+  }
+  @media (min-width:768px){
+    @include circle(60px);
+    &::after{
+      @include circle(65px);
+    }
+  }
+}
+.not-yet-step{
+  @include step-after-bgc ($secondary)
+}
+.finish-step{
+  @include step-after-bgc ($primary)
+}
+.cart-step-line{
+  background: linear-gradient(to right, $primary, $secondary);
+  height: 2px;
+}
+.not-yet-step-line{
+  background: $secondary;
+}
+.finish-step-line{
+  background: $primary;
+}
